@@ -4,6 +4,7 @@ node_modules/
 /playwright/.cache/
 playwright-report
 allure-report
+allure-results
 .env
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
