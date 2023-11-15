@@ -18,9 +18,8 @@ test.beforeEach(async ({ page }) => {
     await page.getByPlaceholder('Password').click();
     await page.getByPlaceholder('Password').fill(newUser.password);
     await page.getByRole('button', { name: 'Sign up' }).click();
+    await expect(page.getByRole('link', { name: 'Global Feed' })).toBeVisible();
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await allure.issue('Название дефекта', 'google.com');
-    // await expect(page.getByRole('link', { name: newUser.fullName })).toBeVisible();
   });
 });
 
@@ -34,6 +33,6 @@ test.describe('Профиль пользователя', () => {
     await page.getByPlaceholder('Short bio about you').click();
     await page.getByPlaceholder('Short bio about you').fill(userBio);
     await page.getByRole('button', { name: 'Update Settings' }).click();
-    await expect(page.getByPlaceholder('Short bio about tou')).toContainText(userBio);
+    await expect(page.locator('//textarea[@name="bio"]')).toContainText(userBio);
   });
 });

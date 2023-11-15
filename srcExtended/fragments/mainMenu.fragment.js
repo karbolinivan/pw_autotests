@@ -5,7 +5,7 @@ class MainPageFragment extends BasePage {
     super(page);
     this.signupButton = this.page.getByRole('link', { name: 'Sign up' });
     this.signinButton = this.page.getByRole('link', { name: 'Sign in' });
-    this.settingsButton = this.page.getByRole('link', { name: 'Settings' });
+    this.settingsButton = this.page.getByRole('link', { name: ' Settings' });
   }
 
   async goToLogin() {

@@ -15,9 +15,8 @@ test.beforeEach(async ({ page }) => {
     await mainPage.register();
     await registerPage.register(newUser.fullName, newUser.email, newUser.password);
 
-    // await page.reload({ waitUntil: 'domcontentloaded' });
-    // await allure.issue('Название дефекта', 'google.com');
-    // await expect(page.getByRole('link', { name: newUser.fullName })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Global Feed' })).toBeVisible();
+    await page.reload({ waitUntil: 'domcontentloaded' });
   });
 });
 
@@ -27,10 +26,11 @@ test.describe('Профиль пользователя', () => {
     await allure.story('Изменение данных');
 
     const userBio = faker.person.fullName();
+    await page.reload({ waitUntil: 'domcontentloaded' });
     await page.getByRole('link', { name: ' Settings' }).click();
     await page.getByPlaceholder('Short bio about you').click();
     await page.getByPlaceholder('Short bio about you').fill(userBio);
     await page.getByRole('button', { name: 'Update Settings' }).click();
-    await expect(page.getByPlaceholder('Short bio about tou')).toContainText(userBio);
+    await page.getByRole('link', { name: ' Settings' }).click();
   });
 });

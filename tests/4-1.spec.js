@@ -17,11 +17,12 @@ test.describe('Профиль пользователя', () => {
     await page.getByPlaceholder('Password').click();
     await page.getByPlaceholder('Password').fill(newUser.password);
     await page.getByRole('button', { name: 'Sign up' }).click();
+    await expect(page.getByRole('link', { name: 'Global Feed' })).toBeVisible();
     await page.reload({ waitUntil: 'domcontentloaded' });
   });
   test('Зарегистрированный пользователь может изменить информацию о себе', async ({ page }) => {
     userBio = faker.person.fullName();
-    await page.locator('//i[@class="ion-gear-a"]').click();
+    await page.getByRole('link', { name: ' Settings' }).click();
     await page.getByPlaceholder('Short bio about you').click();
     await page.getByPlaceholder('Short bio about you').fill(userBio);
     await page.getByRole('button', { name: 'Update Settings' }).click();
