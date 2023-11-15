@@ -27,14 +27,14 @@ jobs:
 
     - name: upload pw-report
       if: always()
-    - uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3
       with:
         name: pw-report
         path: playwright-report
 
     - name: upload allure
       if: always()
-    - uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3
       with:
         name: allure-results
         path: allure-results
