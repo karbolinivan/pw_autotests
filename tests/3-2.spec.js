@@ -25,9 +25,9 @@ test.describe('Профиль пользователя', () => {
   test('Пользователь может заменить информацию о себе', async ({ page }) => {
     userBio = faker.person.fullName();
     await page.getByRole('link', { name: 'Settings' }).click();
-    await page.getByPlaceholder('link', { name: 'Short bio about you' }).click();
-    await page.getByPlaceholder('link', { name: 'Short bio about you' }).fill(userBio);
+    await page.getByPlaceholder('Short bio about you').click();
+    await page.getByPlaceholder('Short bio about you').fill(userBio);
     await page.getByRole('button', { name: 'Update Settings' }).click();
-    await expect(page.getByPlaceholder('link', { name: 'Short bio about tou' })).toContainText(userBio);
+    await expect(page.locator('//textarea[@name="bio"]')).toContainText(userBio);
   });
 });

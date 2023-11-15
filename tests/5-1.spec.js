@@ -30,7 +30,7 @@ test.describe('Профиль пользователя', () => {
     await allure.story('Изменение данных');
 
     userBio = faker.person.fullName();
-    await page.getByRole('link', { name: 'Settings' }).click();
+    await page.getByRole('link', { name: ' Settings' }).click();
     await page.getByPlaceholder('Short bio about you').click();
     await page.getByPlaceholder('Short bio about you').fill(userBio);
     await page.getByRole('button', { name: 'Update Settings' }).click();

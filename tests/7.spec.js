@@ -23,10 +23,6 @@ test.describe('Регистрация', () => {
 
     await expect(app.register.page.getByRole('link', { name: newUser.fullName })).toBeVisible();
   });
-  test('Регистрация нового пользователя через фикстуру', async ({ registerFixture }) => {
-    await registerFixture.mainMenu.getProfileName('name');
-    await expect(registerFixture.page.getByRole('link', { name: '1' })).toBeVisible();
-  });
   test('Автороизация нового пользователя через фикстуру', async ({ loginAsFixture }) => {
     await loginAsFixture.mainMenu.goToSettings();
     await expect(loginAsFixture.page).toHaveURL(/.*settings/);

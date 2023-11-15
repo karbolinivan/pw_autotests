@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
   });
 });
 test.describe('Авторизация', () => {
-  test.only('Авторизация незарегистрированного пользователя MOCK', async ({ page }) => {
+  test('Авторизация незарегистрированного пользователя MOCK', async ({ page }) => {
     const app = new App(page);
     await app.mainMenu.open();
     await app.mainMenu.goToLogin();

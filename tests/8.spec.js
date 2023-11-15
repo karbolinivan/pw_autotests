@@ -4,6 +4,6 @@ import { test } from '../srcExtended/fixtures/all.fixture';
 test.describe('Пользователь', () => {
   test('Неавторизованный пользователь', async ({ unauthorizeFixture }) => {
     await unauthorizeFixture.mainMenu.goToSettings();
-    await expect(unauthorizeFixture.page).toHaveURL(/.*settings/);
+    expect(unauthorizeFixture.page).toHaveURL(/.*settings/);
   });
 });

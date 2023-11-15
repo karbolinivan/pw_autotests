@@ -19,7 +19,6 @@ test.describe('Регистрация', () => {
       },
     };
 
-    const body = await userService.register(request, apiUser);
-    console.log(body);
+    await userService.register(request, apiUser);
   });
 });
