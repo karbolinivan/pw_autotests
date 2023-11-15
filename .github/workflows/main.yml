@@ -10,15 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-      - name: Checkout
-        uses: actions/checkout@4
-        
-      - name: Setup Node.js environment
-        uses: actions/setup-node@4.0.0
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4
 
-      - name: Istall browsers
-        run: npx playwright install --with-deps
+    - name: install dependencies
+      run: npm ci
 
-      - name: Start tests
-        run: npm run test
-    
+    - name: Install browsers
+      run: npx playwright install --with-deps
+
+    - name: Start tests
+      run: npm run test
+  
